@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   cancel: {
     margin: theme.spacing(3, 0, 2),
   },
-  root: {
+  stars: {
     width: 200,
     display: 'flex',
     alignItems: 'center',
@@ -145,7 +145,7 @@ export default function OpenForm(props) {
                   name="rating"
                   inputRef={register({ require: true })}
                   required
-                  className={classes.root}
+                  className={classes.stars}
                 >
                   <Rating
                     name="rating"
@@ -190,7 +190,7 @@ export default function OpenForm(props) {
                 </RadioGroup>
                 {/* Characteristics */}
                 {(!props.meta) ? null : Object.keys(props.meta).map((characteristic, idx) => (
-                  <Grid key={`char is ${characteristic}`} style={{ borderBottom: "1px solid grey" }}>
+                  <Grid key={`${characteristic.toUpperCase()}`} style={{ borderBottom: "1px solid grey" }}>
                     <DialogContentText>
                       {characteristic}
                       <span style={{ color: 'red' }}>*</span>
