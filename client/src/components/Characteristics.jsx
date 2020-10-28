@@ -6,16 +6,6 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  root: {
-    p: 2,
-    bgcolor: 'grey.300',
-    width: '25%',
-    position: 'absolute',
-    top: 0,
-    zIndex: 'modal',
-    display: 'flex',
-    flexGrow: '1',
-  },
   tile: {
     marginTop: '25px',
   },
@@ -85,7 +75,7 @@ export default function Characteristics(props) {
                 />
               </Typography>
             </Grid>
-            <Grid item container sx={12} justify="space-between" style={{fontSize:12}}>
+            <Grid item container sx={12} justify="space-between" style={{ fontSize: 12 }}>
               {characteristicsDescriptions[characteristic].map((descriptor) => (
                 <Grid key={descriptor} item>{descriptor}</Grid>
               ))}
