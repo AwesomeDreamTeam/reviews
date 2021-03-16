@@ -82,6 +82,7 @@ export default function OpenForm(props) {
   };
 
   const postToAPI = (data) => {
+    console.log(data);
     axios.post(
       `http://52.26.193.201:3000/reviews/${props.prodData.id}`,
       data,
@@ -126,13 +127,15 @@ export default function OpenForm(props) {
                   FormData.rating = value;
                   FormData.rating = JSON.parse(FormData.rating);
                   FormData.recommend = JSON.parse(FormData.recommend);
-                  FormData.photos = [];
+                  FormData.photos = [
+                    "https://homepages.cae.wisc.edu/~ece533/images/airplane.png", "https://homepages.cae.wisc.edu/~ece533/images/baboon.png", "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
+                  ];
                   console.log("formData", FormData);
                   const toAPI = { characteristics: {} };
                   Object.keys(FormData).forEach((key) => (['rating', 'summary', 'body', 'recommend', 'name', 'email', 'photos'].includes(key)) ? toAPI[key] = FormData[key] : toAPI.characteristics[`${key}`] = FormData[`${key}`]);
 
                   // console.log('API', toAPI, typeof toAPI.rating, typeof toAPI.recommend, typeof toAPI.characteristics[1]);
-
+                  // console.log(toAPI);
                   postToAPI(toAPI);
                 })}
               >

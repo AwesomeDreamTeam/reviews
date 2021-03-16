@@ -31,12 +31,12 @@ const characteristicsDescriptions = {
 };
 
 export default function Characteristics(props) {
-  //console.log("char meta", props.meta);
   const classes = useStyles();
+  const { meta } = props;
   return (
     <>
-      {Object.keys(props.meta).map((characteristic) => {
-        const arrowLoc = `${(props.meta[characteristic].value / 5) * 100}%`;
+      {Object.keys(meta).map((characteristic) => {
+        const arrowLoc = `${(meta[characteristic].value / 5) * 100}%`;
         return (
           <Grid key={characteristic} item container xs={12} my={3} py={3} className={classes.tile}>
             <Grid item xs={12} mt={3}><b>{characteristic}</b></Grid>
@@ -46,6 +46,7 @@ export default function Characteristics(props) {
                 variant="body1"
                 style={{ height: 20, width: '100%', position: 'relative' }}
               >
+                {/* pointer */}
                 <Box
                   p={0}
                   position="absolute"
@@ -56,8 +57,9 @@ export default function Characteristics(props) {
                 >
                   <ArrowDropDownIcon style={{ fontSize: 60 }} />
                 </Box>
+                {/* characteristic bars */}
                 <Box
-                  p={.5}
+                  p={0.5}
                   bgcolor="#FFFFFF4D"
                   width="26%"
                   position="absolute"
@@ -66,7 +68,7 @@ export default function Characteristics(props) {
                   zIndex="mobile stepper"
                 />
                 <Box
-                  p={.5}
+                  p={0.5}
                   bgcolor="#FFFFFF4D"
                   width="26%"
                   position="absolute"
@@ -75,7 +77,7 @@ export default function Characteristics(props) {
                   zIndex="mobile stepper"
                 />
                 <Box
-                  p={.5}
+                  p={0.5}
                   bgcolor="#FFFFFF4D"
                   width="26%"
                   position="absolute"
